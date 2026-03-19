@@ -18,7 +18,7 @@ $currencies = $pdo
     </head>
     <body>
         <div class="container">
-        <h1>Formulario producto</h1>
+        <h1>Formulario de Producto</h1>
         <form id="product_insert" name="product_insert" method="post" action="product_save.php" novalidate>
             <div class="form-grid">
 
