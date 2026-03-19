@@ -217,6 +217,7 @@ document.getElementById("product_insert").addEventListener("submit", async funct
     const result = await response.text();
     if (result === "ok") {
       alert("Producto guardado correctamente");
+      this.reset();
     } else if (result === "duplicate") {
       alert("El código del producto ya está registrado.");
     } else {
