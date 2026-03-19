@@ -1,4 +1,4 @@
-/*M!999999\- enable the sandbox mode */ 
+/*M!999999\- enable the sandbox mode */
 -- MariaDB dump 10.19-12.2.2-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: test
@@ -142,19 +142,6 @@ CREATE TABLE `productos` (
 -- Dumping data for table `productos`
 --
 
-SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
-LOCK TABLES `productos` WRITE;
-/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES
-(1,'VFAFD','Potato',10000.00,'textil',2,3,2,'test'),
-(2,'adsd2','afdsagfdag',1.01,'metal,vidrio',2,1,2,'adcsaffsaghfdhgfshg'),
-(3,'fadsafdsagf','afdsagfdag',1423214.00,'metal,vidrio',1,2,2,'adcsaffsaghfdhgfshg'),
-(5,'adsd2ag','gfdasghfdshgfs',12.00,'metal,madera',2,1,1,'adcsaffsaghfdhgfshg'),
-(6,'fagfadghf1ah','dsad',12.00,'metal,madera',1,3,1,'adcsaffsaghfdhgfshg');
-/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
-UNLOCK TABLES;
-COMMIT;
-SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 
 --
 -- Table structure for table `sucursales`
