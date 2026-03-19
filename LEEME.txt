@@ -1,0 +1,50 @@
+Versiones usadas:
+- Lighttpd 1.4.82
+- MariaDB (MySQL) 12.2.2
+- PHP 8.5.4
+
+Pasos de instalación (para ArchLinux):
+
+1. Instalar MariaDB, PHP y lighttpd.
+
+sudo pacman -S mariadb lighttpd php php-cgi
+
+2. Inicializar MariaDB para su uso.
+
+sudo mariadb-install-db --user=gothem --basedir=/usr --datadir=/var/lib/mysql
+sudo mysql_secure_installation
+sudo systemctl start mariadb
+
+3. Configurar PHP.
+
+sudoedit /etc/php/php.ini
+
+- Habilitar las extensiones mysqli y pdo_mysql
+extension=mysqli
+extension=pdo_mysql
+
+- Agregar siguiente linea para arreglar rutas
+cgi.fix_pathinfo = 1
+
+4. Configurar Lighttpd
+
+sudoedit /etc/lighttpd/lighttpd.conf
+
+- Incluir configuración CGI
+include "conf.d/cgi.conf"
+
+- Agregar lo siguiente al archivo cgi.conf:
+server.modules += ( "mod_cgi" )
+
+cgi.assign                 = ( ".php" => "/usr/bin/php-cgi" )
+
+index-file.names           +=( "index.php",  "default.php" )
+
+5. Incluir base de datos
+
+mysql -u gothem -p test < dump_db.sql
+
+6. Agregar archivos web a la carpeta /srv/http/
+
+7. Iniciar Lighttpd
+sudo systemctl start lighttpd
